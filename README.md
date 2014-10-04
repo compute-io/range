@@ -28,7 +28,7 @@ Returns the range of an `array` of values.
 
 ``` javascript
 var r = range( [2,3,4,1] );
-// Returns [1,4]
+// returns [1,4]
 ```
 
 Note: the first value of the returned `array` is always the minimum value and the second value is always the maximum value.
