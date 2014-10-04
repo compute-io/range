@@ -19,14 +19,32 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var lib = require( 'compute-range' );
+var range = require( 'compute-range' );
 ```
+
+#### range( arr )
+
+Returns the range of an array of values.
+
+``` javascript
+var r = range( [2,3,4,1] );
+// Returns [1,4]
+```
+
+Note: the first value of the returned `array` is always the minimum value and the second value is always the maximum value.
 
 
 ## Examples
 
 ``` javascript
-var lib = require( 'compute-range' );
+var range = require( 'compute-range' );
+
+var data = new Array( 100 );
+for ( var i = 0; i < data.length; i++ ) {
+	data[ i ] = Math.random()*100;
+}
+
+console.log( range( data ) );
 ```
 
 To run the example code from the top-level application directory,

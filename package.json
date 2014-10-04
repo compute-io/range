@@ -25,7 +25,11 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "statistics",
+    "stats",
+    "range",
+    "arithmetic"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/range/issues"
