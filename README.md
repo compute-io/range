@@ -24,7 +24,7 @@ var range = require( 'compute-range' );
 
 #### range( arr )
 
-Returns the range of an array of values.
+Returns the range of an `array` of values.
 
 ``` javascript
 var r = range( [2,3,4,1] );
@@ -41,7 +41,7 @@ var range = require( 'compute-range' );
 
 var data = new Array( 100 );
 for ( var i = 0; i < data.length; i++ ) {
-	data[ i ] = Math.random()*100;
+	data[ i ] = Math.random() * 100;
 }
 
 console.log( range( data ) );
