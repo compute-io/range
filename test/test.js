@@ -45,6 +45,13 @@ describe( 'compute-range', function tests() {
 		}
 	});
 
+	it( 'should return null for an empty array', function test() {
+		var data = [ ],
+			expected = null;
+
+		assert.deepEqual( range( data ), expected );
+	});
+
 	it( 'should return the arithmetic range', function test() {
 		var data = [ 3,4,2,1,4 ],
 			expected = [1,4];
