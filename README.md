@@ -22,17 +22,38 @@ To use the module,
 var range = require( 'compute-range' );
 ```
 
-#### range( arr )
+#### range( arr[, accessor] )
 
-Returns the range of an `array` of values.
+Computes the arithmetic range of an `array`. For primitive `arrays`,
 
 ``` javascript
-var r = range( [2,3,4,1] );
+var arr = [ 2, 3, 4, 1 ];
+
+var r = range( arr );
 // returns [1,4]
 ```
 
-Note: the first value of the returned `array` is always the minimum value and the second value is always the maximum value.
+For object `arrays`, provide an accessor `function` for accessing `array` values
 
+``` javascript
+var arr = [
+	[1,2],
+	[3,3],
+	[4,4],
+	[6,1]
+];
+
+function getValue( d ) {
+	return d[ 1 ];
+}
+
+var r = range( arr, getValue );
+// returns [1,4]
+```
+
+__Note__: if an input `array` does not contain any `numeric` values, the function returns `null`.
+
+__Note__: the first value of the returned `array` is always the minimum value and the second value is always the maximum value.
 
 ## Examples
 
@@ -84,7 +105,7 @@ $ open reports/coverage/lcov-report/index.html
 
 ## License
 
-[MIT license](http://opensource.org/licenses/MIT). 
+[MIT license](http://opensource.org/licenses/MIT).
 
 
 ---
