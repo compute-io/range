@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,7 +19,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'compute-range', function tests() {
-	'use strict';
 
 	it( 'should export a function', function test() {
 		expect( range ).to.be.a( 'function' );
@@ -25,14 +26,15 @@ describe( 'compute-range', function tests() {
 
 	it( 'should throw an error if not provided an array', function test() {
 		var values = [
-				'5',
-				5,
-				null,
-				undefined,
-				NaN,
-				function(){},
-				{}
-			];
+			'5',
+			5,
+			null,
+			undefined,
+			NaN,
+			true,
+			function(){},
+			{}
+		];
 
 		for ( var i = 0; i < values.length; i++ ) {
 			expect( badValue( values[i] ) ).to.throw( TypeError );
@@ -61,7 +63,7 @@ describe( 'compute-range', function tests() {
 		}
 		function badValue( value ) {
 			return function() {
-				range( [], value );
+				range( [ 1, 2 ], value );
 			};
 		}
 	});
@@ -72,9 +74,15 @@ describe( 'compute-range', function tests() {
 		assert.strictEqual( range( [] ), expected );
 	});
 
+	it( 'should return the range of a single element array', function test() {
+		var expected = [ 5, 5 ];
+
+		assert.deepEqual( range( [5] ), expected );
+	});
+
 	it( 'should return the arithmetic range', function test() {
-		var data = [ 3,4,2,1,4 ],
-			expected = [1,4];
+		var data = [3,4,2,1,4],
+			expected = [ 1, 4 ];
 
 		assert.deepEqual( range( data ), expected );
 	});

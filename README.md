@@ -1,8 +1,8 @@
-range
+Range
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the arithmetic range of an array of values.
+> Computes the arithmetic range of an array.
 
 
 ## Installation
@@ -16,24 +16,22 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-To use the module,
-
 ``` javascript
 var range = require( 'compute-range' );
 ```
 
 #### range( arr[, accessor] )
 
-Computes the arithmetic range of an `array`. For primitive `arrays`,
+Computes the arithmetic range of an `array`. For primitive number `arrays`,
 
 ``` javascript
 var arr = [ 2, 3, 4, 1 ];
 
 var r = range( arr );
-// returns [1,4]
+// returns [ 1, 4 ]
 ```
 
-For object `arrays`, provide an accessor `function` for accessing `array` values
+For object `arrays`, provide an accessor `function` for accessing numeric `array` values
 
 ``` javascript
 var arr = [
@@ -48,12 +46,16 @@ function getValue( d ) {
 }
 
 var r = range( arr, getValue );
-// returns [1,4]
+// returns [ 1, 4 ]
 ```
 
-__Note__: if an input `array` does not contain any `numeric` values, the function returns `null`.
 
-__Note__: the first value of the returned `array` is always the minimum value and the second value is always the maximum value.
+## Notes
+
+* 	if provided an empty `array`, the function returns `null`.
+*	the first value of the returned `array` is always the minimum value and the second value is always the maximum value.
+
+
 
 ## Examples
 
@@ -64,7 +66,6 @@ var data = new Array( 100 );
 for ( var i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.random() * 100;
 }
-
 console.log( range( data ) );
 ```
 
@@ -79,7 +80,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -99,19 +100,19 @@ $ make test-cov
 Istanbul creates a `./reports/coverage` directory. To access an HTML version of the report,
 
 ``` bash
-$ open reports/coverage/lcov-report/index.html
+$ make view-cov
 ```
 
 
+---
 ## License
 
 [MIT license](http://opensource.org/licenses/MIT).
 
 
----
 ## Copyright
 
-Copyright &copy; 2014. Athan Reines.
+Copyright &copy; 2014-2015. Athan Reines.
 
 
 [npm-image]: http://img.shields.io/npm/v/compute-range.svg
