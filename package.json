@@ -1,6 +1,6 @@
 {
   "name": "compute-range",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Computes the arithmetic range of an array.",
   "author": {
     "name": "Athan Reines",
